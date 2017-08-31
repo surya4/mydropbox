@@ -1,0 +1,68 @@
+<html lang="en">
+<% include ../partials/header %>
+
+    <body>
+        <% include ../partials/nav %>
+            <div class="container-fluid">
+                <% if(messages.error) {%>
+                    <div class="alert alert-danger" role="alert">
+                        <% for(error in messages.error) {%>
+                            <div>
+                                <% error.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <% } %>
+                        <% if(messages.success) {%>
+                            <div class="alert alert-success" role="alert">
+                                <% for(success in messages.success) {%>
+                                    <div>
+                                        <% success.msg %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <% } %>
+                                <% if(messages.info) {%>
+                                    <div class="alert alert-info" role="alert">
+                                        <% for(info in messages.info) {%>
+                                            <div>
+                                                <% info.msg %>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <% } %>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h3>Heading</h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                            <a href="#" class="btn btn-default" role="button">Vew Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h3>Heading</h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                            <a href="#" class="btn btn-default" role="button">Vew Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <h3>Heading</h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                            <a href="#" class="btn btn-default" role="button">Vew Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include ../partials/footer %>
+                <% include ../partials/scripts %>
+    </body>
+
+</html>

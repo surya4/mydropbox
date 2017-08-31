@@ -1,0 +1,25 @@
+<html lang="en">
+  <% include ../partials/header %>
+  <body>
+    <% include ../partials/nav %>
+    <div class="container-fluid">
+    <% if(messages.error) {%>
+		<% for(error in messages.error) {%>
+		<div><% error.msg %></div>
+    	<% } %>
+    <% } %>
+    <% if(messages.success) {%>
+		<% for(success in messages.success) {%>
+		<div><% success.msg %></div>
+    	<% } %>
+    <% } %>	
+    <% if(messages.info) {%>
+		<% for(info in messages.info) {%>
+		<div><% info.msg %></div>
+    	<% } %>
+    <% } %>		
+    </div>
+<% include ../partials/footer %>
+<% include ../partials/scripts %>
+</body>
+</html>
