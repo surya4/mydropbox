@@ -1,4 +1,4 @@
-## Boilerplate for Node Projects
+## My DropBox
 
 ### Configuration
 - **Platform:** node
@@ -11,4 +11,4 @@
 - **Unit Testing**: mocha
 - **Database**: mongodb
 - **Authentication**: email,facebook,google,twitter,github
-- **Deployment**: digitalOcean
+- **Deployment**: aws
