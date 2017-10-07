@@ -5,11 +5,13 @@
         <% include ../partials/nav %>
 
             <!-- websocket magic -->
-            <p>Single magic is happening here:
-                <%= title %>
-            </p>
-            <h1>Pings</h1>
-            <ul id='pings'></ul>
+            <form class="col-md-12 upload" action="/" method="post" enctype="multipart/form-data">
+                <h4 class="col-md-3 col-md-offset-4">Upload File</h4>
+                <input type="file" id="myFile" class="col-md-3 col-md-offset-4" name='file'>
+                <input type="submit" id="subbtn" class=" btn">
+                <br>
+            </form>
+
             <script>
                 var host = location.origin.replace(/^http/, 'ws')
                 var ws = new WebSocket(host);
