@@ -1,6 +1,8 @@
 let express = require('express');
-let Index = require('../controllers/index');
 let router = express.Router();
+
+let Index = require('../controllers/index');
+
 
 router.get('/', Index.index_get);
 

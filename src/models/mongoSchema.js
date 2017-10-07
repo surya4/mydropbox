@@ -7,7 +7,7 @@ mongoose.connect(config.dbmmongo.database);
 var Schema = mongoose.Schema;
 mongoose.set('debug', true);
 
-var urlSchema = new Schema({
+var mydropboxSchema = new Schema({
     longurl: {
         type: String,
         unique: true,
@@ -18,8 +18,8 @@ var urlSchema = new Schema({
         unique: true,
         required: true
     }
-}, { collection: 'collectionname' }, { versionKey: false });
+}, { collection: 'mydropbox' }, { versionKey: false });
 
-var Data = mongoose.model('Data', collectionname)
+var Data = mongoose.model('Data', mydropboxSchema)
 
 module.exports = Data;
