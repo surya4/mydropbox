@@ -3,7 +3,23 @@
 
     <body>
         <% include ../partials/nav %>
-            
+
+            <!-- websocket magic -->
+            <p>Single magic is happening here:
+                <%= title %>
+            </p>
+            <h1>Pings</h1>
+            <ul id='pings'></ul>
+            <script>
+                var host = location.origin.replace(/^http/, 'ws')
+                var ws = new WebSocket(host);
+                ws.onmessage = function(event) {
+                    var li = document.createElement('li');
+                    li.innerHTML = JSON.parse(event.data);
+                    document.querySelector('#pings').appendChild(li);
+                };
+            </script>
+
             <% include ../partials/footer %>
                 <% include ../partials/scripts %>
     </body>

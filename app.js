@@ -1,10 +1,12 @@
+const WebSocket = require('ws');
 const express = require('express');
+const http = require("http");
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
+const port = process.env.PORT || 3000;
 const index = require('./src/routes/index');
 
 const app = express();
@@ -22,6 +24,24 @@ app.use(express.static(path.join(__dirname, './src/public')));
 
 app.use('/', index);
 
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server: server });
+let connectedUsers = 0;
+
+wss.on("connection", function(ws) {
+    connectedUsers++;
+    var id = setInterval(function() {
+        ws.send(JSON.stringify(new Date() + ` connectedUsers ${connectedUsers}`), function() {})
+    }, 1000);
+
+    console.log("New websocket connection open");
+
+    ws.on("close", function() {
+        console.log("websocket connection close")
+        clearInterval(id);
+    });
+});
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
     let err = new Error('Not Found');
@@ -38,6 +58,10 @@ app.use((err, req, res, next) => {
     // render the error page
     res.status(err.status || 500);
     res.render('pages/error');
+});
+
+server.listen(port, function listening() {
+    console.log('Listening on %d', server.address().port);
 });
 
 module.exports = app;
