@@ -3,7 +3,7 @@
 ### Configuration
 - **Platform:** node
 - **Framework**: express
-- **Template Engine**: ejs
+- **Template Engine**: mustache
 - **CSS Framework**: bootstrap
 - **CSS Preprocessor**: css
 - **JavaScript Framework**: 
